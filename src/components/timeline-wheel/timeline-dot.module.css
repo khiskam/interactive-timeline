@@ -1,0 +1,49 @@
+.timeline-circle__text {
+  color: var(--color-black-blue-hex);
+  font-size: 20px;
+  line-height: 30%;
+}
+
+.timeline-circle__dot-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 100;
+}
+
+.timeline-circle__dot-hitbox {
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.timeline-circle__dot_small {
+  height: 6px;
+  width: 6px;
+  background-color: var(--color-black-blue-hex);
+  border-radius: 50%;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border 0.3s ease;
+}
+
+.timeline-circle__dot_big {
+  height: 56px;
+  width: 56px;
+  border: 1px solid rgba(var(--color-black-blue-rgb), 0.5);
+  border-radius: 50%;
+  background-color: var(--color-white-hex);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border 0.3s ease;
+}
