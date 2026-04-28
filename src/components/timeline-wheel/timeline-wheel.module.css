@@ -1,0 +1,15 @@
+.timeline-wheel {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.timeline-wheel::before {
+  content: "";
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gray-200);
+  z-index: -1;
+}

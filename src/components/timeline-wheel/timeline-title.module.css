@@ -1,0 +1,33 @@
+.timeline-title {
+  font-weight: 700;
+  font-size: 200px;
+  line-height: 160px;
+  letter-spacing: -0.02em;
+  z-index: 10;
+}
+
+.timeline-title__text_blue {
+  color: var(--color-blue-hex);
+}
+
+.timeline-title__text_pink {
+  color: var(--color-pink-hex);
+}
+
+@media screen and (max-width: 1279px) {
+  .timeline-title {
+    font-size: 156px;
+  }
+}
+
+@media screen and (max-width: 759px) {
+  .timeline-title {
+    font-size: 100px;
+  }
+}
+
+@media screen and (max-width: 659px) {
+  .timeline-title {
+    font-size: 56px;
+  }
+}
