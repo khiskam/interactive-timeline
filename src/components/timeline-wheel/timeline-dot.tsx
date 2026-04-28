@@ -16,6 +16,18 @@ export const TimelineDot = ({ isActive, idx, rotationOffset, onClick }: Timeline
 
   const isExpanded = isActive || isHovered;
 
+  const handleClick = () => {
+    onClick(idx);
+  }
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  }
+
   return (
     <div 
       className={styles['timeline-circle__dot-wrapper']}
@@ -23,9 +35,9 @@ export const TimelineDot = ({ isActive, idx, rotationOffset, onClick }: Timeline
     >
       <div 
         className={styles['timeline-circle__dot-hitbox']}
-        onClick={() => onClick(idx)}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div 
           ref={dotRef}
