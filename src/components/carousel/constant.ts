@@ -7,10 +7,10 @@ export const CAROUSEL_OPTIONS: Options = {
   breakpoints: {
     1279: {
       perPage: 2,
+      pagination: true,
     },
     767: {
       perPage: 1,
-      pagination: true,
     }
   }
 };

@@ -13,18 +13,25 @@
   z-index: 100;
 }
 
-.timeline-circle__dot-hitbox {
-  width: 56px;
-  height: 56px;
+.timeline-circle__content {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -28px;
+  transform: translate(-28px, -50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.timeline-circle__dot-hitbox {
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .timeline-circle__dot_small {
@@ -46,4 +53,16 @@
   justify-content: center;
   overflow: hidden;
   transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border 0.3s ease;
+}
+
+.timeline__title {
+  font-weight: 700;
+  color: var(--color-black-blue-hex);
+  font-size: 20px;
+  white-space: nowrap;
+  display: none;
+}
+
+.timeline__title_active {
+  display: block;
 }
