@@ -1,8 +1,7 @@
+import { TimelineCircle } from "./timeline-circle";
+import { TimelineTitle } from "./timeline-title";
 
-import { TimelineCircle } from './timeline-circle';
-import { TimelineTitle } from './timeline-title';
-
-import styles from './timeline-wheel.module.css';
+import styles from "./timeline-wheel.module.css";
 
 interface TimelineWheelProps {
   activeIdx: number;
@@ -21,21 +20,21 @@ export const TimelineWheel = ({
   targetEndDate,
   onClick,
 }: TimelineWheelProps) => {
-  
-
   return (
-    <div className={styles['timeline-wheel']}>
-      {isTablet ? null : (
-        <TimelineCircle
-          onClick={onClick}
-          activeIdx={activeIdx}
-          data={data}
-        />
-      )}
+    <div className={ styles["timeline-wheel"] }>
+      { isTablet
+        ? null
+        : (
+          <TimelineCircle
+            onClick={ onClick }
+            activeIdx={ activeIdx }
+            data={ data }
+          />
+        ) }
       <TimelineTitle
-        targetStartDate={targetStartDate}
-        targetEndDate={targetEndDate}
+        targetStartDate={ targetStartDate }
+        targetEndDate={ targetEndDate }
       />
     </div>
-  )
-}
+  );
+};

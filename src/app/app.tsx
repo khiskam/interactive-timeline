@@ -1,27 +1,27 @@
+import { useState } from "react";
 import { useGSAP } from "@gsap/react";
-import { TimelineWheel } from "../components/timeline-wheel/timeline-wheel";
-import { Header } from "../components/header/header";
+import { gsap } from "gsap";
 
 import { Carousel } from "../components/carousel/carousel";
-import { useState } from "react";
-import { TOPICS } from "./constant";
-import { gsap } from 'gsap';
-
-import styles from './app.module.css'
-import { useMatchMedia } from "./hook";
+import { Header } from "../components/header/header";
 import { Navigation } from "../components/navigation/navigation";
+import { TimelineWheel } from "../components/timeline-wheel/timeline-wheel";
+import { TOPICS } from "./constant";
+import { useMatchMedia } from "./hook";
+
+import styles from "./app.module.css";
 
 gsap.registerPlugin(useGSAP);
 
 export const App = () => {
-  const [activeIdx, setActiveIdx] = useState(0);
+  const [ activeIdx, setActiveIdx ] = useState(0);
 
-  const titles = TOPICS.map(({discipline}) => discipline);
+  const titles = TOPICS.map(({ discipline }) => discipline);
 
-  const isTablet = useMatchMedia('(max-width: 767px)');
+  const isTablet = useMatchMedia("(max-width: 767px)");
 
   const activeTopicItems = TOPICS[activeIdx].items;
-  
+
   const targetStartDate = activeTopicItems[0].time;
   const targetEndDate = activeTopicItems[activeTopicItems.length - 1].time;
 
@@ -30,11 +30,11 @@ export const App = () => {
       return;
     }
 
-    gsap.to('.splide', { opacity: 0, duration: 0.3 });
+    gsap.to(".splide", { opacity: 0, duration: 0.3 });
 
     setActiveIdx(idx);
 
-    gsap.to('.splide', { opacity: 1, duration: 0.3, delay: 1 });
+    gsap.to(".splide", { opacity: 1, duration: 0.3, delay: 1 });
   };
 
   const handlePrev = () => {
@@ -45,7 +45,7 @@ export const App = () => {
     }
 
     handleClick(activeIdx - 1);
-  }
+  };
 
   const handleNext = () => {
     if (activeIdx === TOPICS.length - 1) {
@@ -55,43 +55,46 @@ export const App = () => {
     }
 
     handleClick(activeIdx + 1);
-  }
+  };
 
   return (
-    <div className={styles.app}>
-      <div className={styles.app__wrapper}>
-        <div style={{position: 'relative'}}>
-          <Header/>
+    <div className={ styles.app }>
+      <div className={ styles.app__wrapper }>
+        <div className={ styles.app__container }>
+          <Header />
           <TimelineWheel
-            activeIdx={activeIdx}
-            data={titles}
-            onClick={handleClick}
-            isTablet={isTablet}
-            targetStartDate={targetStartDate}
-            targetEndDate={targetEndDate}
+            activeIdx={ activeIdx }
+            data={ titles }
+            onClick={ handleClick }
+            isTablet={ isTablet }
+            targetStartDate={ targetStartDate }
+            targetEndDate={ targetEndDate }
           />
-          {isTablet ? null : (
-            <Navigation
-              activeIdx={activeIdx}
-              totalItems={TOPICS.length}
-              onPrev={handlePrev}
-              onNext={handleNext}
-            />
-          )}
+          { isTablet
+            ? null
+            : (
+              <Navigation
+                activeIdx={ activeIdx }
+                totalItems={ TOPICS.length }
+                onPrev={ handlePrev }
+                onNext={ handleNext }
+              />
+            ) }
         </div>
-        <div style={{position: 'relative'}}>
-          <Carousel data={TOPICS[activeIdx].items}/>
-          {isTablet ? (
-            <Navigation
-              activeIdx={activeIdx}
-              totalItems={TOPICS.length}
-              onPrev={handlePrev}
-              onNext={handleNext}
-            />
-          ) : null}
+        <div className={ styles.app__container }>
+          <Carousel data={ TOPICS[activeIdx].items } />
+          { isTablet
+            ? (
+              <Navigation
+                activeIdx={ activeIdx }
+                totalItems={ TOPICS.length }
+                onPrev={ handlePrev }
+                onNext={ handleNext }
+              />
+            )
+            : null }
         </div>
       </div>
     </div>
   );
 };
-

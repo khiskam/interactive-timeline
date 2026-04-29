@@ -1,32 +1,34 @@
-import { Splide, SplideTrack } from '@splidejs/react-splide';
+import "@splidejs/react-splide/css/default";
 
-import type { TopicItem } from '../../shared/type/topic';
-import { CAROUSEL_OPTIONS } from './constant';
-import { CarouselPagination } from './carousel-pagination';
-import { CarouselSlide } from './carousel-slide';
+import { Splide, SplideTrack } from "@splidejs/react-splide";
 
-import '@splidejs/react-splide/css/default';
+import type { TopicItem } from "../../shared/type/topic";
+import { CarouselPagination } from "./carousel-pagination";
+import { CarouselSlide } from "./carousel-slide";
+import { CAROUSEL_OPTIONS } from "./constant";
 
-import './carousel.css';
+import "./carousel.css";
 
-interface CarouselProps {
-  data: TopicItem[];
-}
+interface CarouselProps { data: TopicItem[] }
 
-export const Carousel = ({data}: CarouselProps) => {
+export const Carousel = ({ data }: CarouselProps) => {
   return (
-    <Splide 
-      hasTrack={false}
-      options={CAROUSEL_OPTIONS}
+    <Splide
+      hasTrack={ false }
+      options={ CAROUSEL_OPTIONS }
       aria-label="My Favorite Images"
     >
-      <CarouselPagination/>
+      <CarouselPagination />
       <SplideTrack>
-        {data.map(({time, description}, idx) => (
-          <CarouselSlide key={idx} time={time} description={description} idx={idx}/>
-        ))}
+        { data.map(({ time, description }, idx) => (
+          <CarouselSlide
+            key={ idx }
+            time={ time }
+            description={ description }
+            idx={ idx }
+          />)
+        ) }
       </SplideTrack>
     </Splide>
-  )
-}
-
+  );
+};

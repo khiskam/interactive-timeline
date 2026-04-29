@@ -1,6 +1,6 @@
-import { SplideSlide } from '@splidejs/react-splide';
+import { SplideSlide } from "@splidejs/react-splide";
 
-import styles from './carousel-pagination.module.css';
+import styles from "./carousel-pagination.module.css";
 
 interface CarouselSlideProps {
   idx: number;
@@ -11,18 +11,18 @@ interface CarouselSlideProps {
 export const CarouselSlide = ({
   idx,
   time,
-  description
+  description,
 }: CarouselSlideProps) => {
   return (
-    <SplideSlide key={idx}>
+    <SplideSlide key={ idx }>
       <div>
-        <span className={styles.carousel__time}>
-          {time}
+        <span className={ styles.carousel__time }>
+          { time }
         </span>
-        <p className={styles.carousel__description}>
-          {description}
+        <p className={ styles.carousel__description }>
+          { description }
         </p>
       </div>
     </SplideSlide>
-  )
-}
+  );
+};

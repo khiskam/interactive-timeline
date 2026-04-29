@@ -12,19 +12,19 @@
 .splide__arrow {
   width: 40px;
   height: 40px;
+  color: var(--color-light-blue-hex);
+  cursor: pointer;
   background: transparent;
   border: none;
   border-radius: 50%;
-  color: var(--color-light-blue-hex);
-  cursor: pointer;
-  box-shadow: 0px 0px 15px rgba(56, 119, 238, 0.1);
+  box-shadow: 0 0 15px rgb(56 119 238 / 10%);
   transition: opacity 0.3s ease;
 }
 
 .splide__arrow:disabled {
-  opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  opacity: 0;
 }
 
 .splide__arrow > svg {
@@ -49,10 +49,10 @@
 }
 
 .splide__slide {
-  list-style-type: none;
   display: grid;
   gap: 16px;
   padding-right: 16px;
+  list-style-type: none;
 }
 
 .splide__pagination {
@@ -61,8 +61,8 @@
 }
 
 .splide__pagination__page {
-  background-color: rgba(var(--color-black-blue-rgb), 0.4);
   cursor: pointer;
+  background-color: rgb(var(--color-black-blue-rgb), 0.4);
 }
 
 .splide__pagination__page.is-active {
@@ -70,7 +70,7 @@
   transform: none;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (width <= 1279px) {
   .splide {
     width: calc(100% - 36px * 2);
   }
@@ -80,12 +80,12 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (width <= 767px) {
   .splide {
     width: calc(100%);
+    padding-top: 20px;
     margin: 0;
     border-top: 1px solid var(--color-gray-hex);
-    padding-top: 20px;
   }
 
   .splide__pagination {

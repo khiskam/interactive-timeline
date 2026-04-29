@@ -6,14 +6,14 @@
   --color-blue-rgb: 93, 95, 239;
   --color-black-blue-hex: #42567A;
   --color-black-blue-rgb: 66, 86, 122;
-  --color-white-hex: #ffffff;
+  --color-white-hex: #fff;
   --color-gray-hex: #C7CDD9;
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
