@@ -1,0 +1,83 @@
+.splide {
+  width: calc(100% - 80px * 2);
+  margin: 0 auto;
+  margin-top: 96px;
+}
+
+.splide__arrows {
+  display: flex;
+  gap: 12px;
+}
+
+.splide__arrow {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--color-light-blue-hex);
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(56, 119, 238, 0.1);
+  transition: opacity 0.3s ease;
+}
+
+.splide__arrow:disabled {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splide__arrow > svg {
+  width: 10px;
+  fill: none;
+}
+
+.splide__arrow--prev {
+  left: -40px;
+}
+
+.splide__arrow--next {
+  right: -40px;
+}
+
+.splide__arrow--prev > svg {
+  transform: unset;
+}
+
+.splide__arrow--next > svg {
+  transform: rotate(180deg);
+}
+
+.splide__slide {
+  list-style-type: none;
+  display: grid;
+  gap: 16px;
+}
+
+.splide__pagination {
+  position: static;
+  margin-top: 100px;
+}
+
+.splide__pagination__page {
+  background-color: rgba(var(--color-black-blue-rgb), 0.4);
+  cursor: pointer;
+}
+
+.splide__pagination__page.is-active {
+  background-color: var(--color-black-blue-hex);
+  transform: none;
+}
+
+@media screen and (max-width: 767px) {
+  .splide {
+    width: calc(100%);
+    margin: 0;
+    border-top: 1px solid var(--color-gray-hex);
+    padding-top: 20px;
+  }
+
+  .splide__arrows {
+    display: none;
+  }
+}
