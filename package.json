@@ -10,7 +10,8 @@
     "stylelint": "stylelint \"**/*.css\"",
     "stylelint:fix": "stylelint \"**/*.css\" --fix",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "type:check": "tsc --b --noEmit"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
