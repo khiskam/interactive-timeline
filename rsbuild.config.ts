@@ -6,4 +6,5 @@ import { pluginTypedCSSModules } from "@rsbuild/plugin-typed-css-modules";
 export default defineConfig({
   plugins: [ pluginReact(), pluginTypedCSSModules() ],
   html: { template: "./public/index.html" },
+  resolve: { alias: { "@": "./src" } },
 });

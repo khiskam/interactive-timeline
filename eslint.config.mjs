@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
 import { defineConfig, globalIgnores } from "eslint/config";
 import importNewlines from "eslint-plugin-import-newlines";
+import importX from "eslint-plugin-import-x";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
@@ -148,22 +149,25 @@ export default defineConfig([
         "error",
         {
           groups: [
-            // 1. Импорты с сайд-эффектами (кроме стилей)
             [ "^\\u0000(?!.*\\.(css|scss|sass|less)$)" ],
-            // 2. Пакеты из node_modules (react и др.), кроме стилей
             [ "^react", "^@?\\w(?!.*\\.(css|scss|sass|less)$)" ],
-            // 3. Абсолютные импорты проекта (src/, components/ и т.д.), кроме стилей
             [ "^(?!.*\\.(css|scss|sass|less)$)[^.]" ],
-            // 4. Относительные импорты (../, ./), кроме стилей
             [ "^(?!.*\\.(css|scss|sass|less)$)\\." ],
-            // 5. Стили из node_modules (абсолютные пути)
             [ "^\\u0000[^.]+\\.(css|scss|sass|less)$", "^[^.]+\\.(css|scss|sass|less)$" ],
-            // 6. Относительные стили проекта
             [ "^\\u0000\\..+\\.(css|scss|sass|less)$", "^\\..+\\.(css|scss|sass|less)$" ],
           ],
         },
       ],
       "simple-import-sort/exports": "error",
+    },
+  }, {
+    plugins: { "import-x": importX },
+    rules: { "import-x/no-unresolved": "error" },
+    settings: {
+      "import-x/resolver": {
+        typescript: { alwaysTryTypes: true },
+        node: { extensions: [ ".js", ".jsx", ".ts", ".tsx", ".css", ".scss" ] },
+      },
     },
   },
 ]);
