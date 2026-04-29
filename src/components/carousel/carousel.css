@@ -1,5 +1,5 @@
 .splide {
-  width: calc(100% - 80px * 2);
+  width: calc(100% - 74px * 2);
   margin: 0 auto;
   margin-top: 96px;
 }
@@ -52,11 +52,12 @@
   list-style-type: none;
   display: grid;
   gap: 16px;
+  padding-right: 16px;
 }
 
 .splide__pagination {
   position: static;
-  margin-top: 100px;
+  margin-top: 36px;
 }
 
 .splide__pagination__page {
@@ -69,6 +70,16 @@
   transform: none;
 }
 
+@media screen and (max-width: 1279px) {
+  .splide {
+    width: calc(100% - 36px * 2);
+  }
+
+  .splide__arrows {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .splide {
     width: calc(100%);
@@ -77,7 +88,7 @@
     padding-top: 20px;
   }
 
-  .splide__arrows {
-    display: none;
+  .splide__pagination {
+    margin-top: 100px;
   }
 }
