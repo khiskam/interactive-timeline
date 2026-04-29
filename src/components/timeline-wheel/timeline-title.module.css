@@ -16,11 +16,11 @@
 
 @media screen and (max-width: 1279px) {
   .timeline-title {
-    font-size: 156px;
+    font-size: 120px;
   }
 }
 
-@media screen and (max-width: 759px) {
+@media screen and (max-width: 767px) {
   .timeline-title {
     font-size: 100px;
   }

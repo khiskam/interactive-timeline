@@ -1,0 +1,9 @@
+.carousel__time {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 24px;
+  color: var(--color-light-blue-hex);
+}
+
+.carousel__description {
+  color: var(--color-black-blue-hex);
+}

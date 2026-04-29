@@ -6,15 +6,17 @@ import { TimelineDot } from './timeline-dot';
 
 import styles from './timeline-circle.module.css';
 
+interface TimelineCircleProps {
+  activeIdx: number;
+  onIdxChange: (idx: number) => void;
+}
 
-export const TimelineCircle = () => {
-  const [activeIdx, setActiveIdx] = useState(0);
-
+export const TimelineCircle = ({onIdxChange, activeIdx}: TimelineCircleProps) => {
   const offsetRef = useRef({ value: -60 });
   const [rotationOffset, setRotationOffset] = useState(-60);
 
   const handleClick = (idx: number) => {
-    setActiveIdx(idx);
+    onIdxChange(idx);
     
     const currentDotAngle = 60 * idx + offsetRef.current.value;
     const diff = calculateShortestRotation(currentDotAngle, -60);

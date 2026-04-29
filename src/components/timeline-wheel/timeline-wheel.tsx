@@ -1,14 +1,22 @@
 import { useMatchMedia } from './hook';
-import styles from './timeline-wheel.module.css';
 import { TimelineCircle } from './timeline-circle';
 import { TimelineTitle } from './timeline-title';
 
-export const TimelineWheel = () => {
-  const isTablet = useMatchMedia('(max-width: 759px)');
+import styles from './timeline-wheel.module.css';
+
+interface TimelineWheelProps {
+  activeIdx: number;
+  onIdxChange: (idx: number) => void;
+}
+
+export const TimelineWheel = ({activeIdx, onIdxChange}: TimelineWheelProps) => {
+  const isTablet = useMatchMedia('(max-width: 767px)');
 
   return (
     <div className={styles['timeline-wheel']}>
-      {!isTablet && <TimelineCircle />}
+      {isTablet ? null : (
+        <TimelineCircle onIdxChange={onIdxChange} activeIdx={activeIdx}/>
+      )}
       <TimelineTitle />
     </div>
   )

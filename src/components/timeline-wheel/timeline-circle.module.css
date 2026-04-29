@@ -4,6 +4,5 @@
   border: 1px solid rgba(var(--color-black-blue-rgb), 0.2);
   border-radius: 50%;
   position: relative;
-  cursor: pointer;
   grid-area: 1 / 1;
 }

@@ -1,11 +1,13 @@
 :root {
   --color-pink-hex: #EF5DA8;
   --color-pink-rgb: 239, 93, 168;
+  --color-light-blue-hex: #3877EE;
   --color-blue-hex: #5D5FEF;
   --color-blue-rgb: 93, 95, 239;
   --color-black-blue-hex: #42567A;
   --color-black-blue-rgb: 66, 86, 122;
   --color-white-hex: #ffffff;
+  --color-gray-hex: #C7CDD9;
 }
 
 * {
