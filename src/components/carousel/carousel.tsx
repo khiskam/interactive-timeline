@@ -26,8 +26,8 @@ export const Carousel = ({ data }: CarouselProps) => {
             time={ time }
             description={ description }
             idx={ idx }
-          />)
-        ) }
+          />
+        )) }
       </SplideTrack>
     </Splide>
   );
