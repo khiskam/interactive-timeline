@@ -29,6 +29,9 @@ jobs:
       - name: Check linter
         run: pnpm lint
 
+      - name: Check styles
+        run: pnpm stylelint
+
       - name: Check types
         run: pnpm type:check
 

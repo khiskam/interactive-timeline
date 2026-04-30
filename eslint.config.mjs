@@ -1,8 +1,11 @@
 import js from "@eslint/js";
+import json from "@eslint/json";
 import stylistic from "@stylistic/eslint-plugin";
 import { defineConfig, globalIgnores } from "eslint/config";
 import importNewlines from "eslint-plugin-import-newlines";
 import importX from "eslint-plugin-import-x";
+import jsonc from "eslint-plugin-jsonc";
+import putout from "eslint-plugin-putout";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
@@ -82,16 +85,19 @@ export default defineConfig([
       "@stylistic/member-delimiter-style": "error",
       "@stylistic/keyword-spacing": [ "error", { after: true, before: true } ],
       "@stylistic/key-spacing": [ "error", { beforeColon: false } ],
-      "@stylistic/jsx-wrap-multilines": [ "error", {
-        declaration: "parens-new-line",
-        assignment: "parens-new-line",
-        return: "parens-new-line",
-        arrow: "parens-new-line",
-        condition: "parens-new-line",
-        logical: "parens-new-line",
-        prop: "parens-new-line",
-        propertyValue: "parens-new-line",
-      } ],
+      "@stylistic/jsx-wrap-multilines": [
+        "error",
+        {
+          declaration: "parens-new-line",
+          assignment: "parens-new-line",
+          return: "parens-new-line",
+          arrow: "parens-new-line",
+          condition: "parens-new-line",
+          logical: "parens-new-line",
+          prop: "parens-new-line",
+          propertyValue: "parens-new-line",
+        },
+      ],
       "@stylistic/jsx-tag-spacing": [ "error", { beforeSelfClosing: "always" } ],
       "@stylistic/jsx-self-closing-comp": "error",
       "@stylistic/jsx-one-expression-per-line": "error",
@@ -110,22 +116,27 @@ export default defineConfig([
       "@stylistic/computed-property-spacing": [ "error", "never" ],
       "@stylistic/comma-style": [ "error", "last" ],
       "@stylistic/comma-spacing": [ "error", { before: false, after: true } ],
-      "@stylistic/comma-dangle": [ "error", {
-        arrays: "always-multiline",
-        objects: "always-multiline",
-        imports: "never",
-        exports: "never",
-        functions: "never",
-        importAttributes: "never",
-        dynamicImports: "never",
-        enums: "never",
-        generics: "never",
-        tuples: "never",
-      } ],
+      "@stylistic/comma-dangle": [
+        "error",
+        {
+          arrays: "always-multiline",
+          objects: "always-multiline",
+          imports: "never",
+          exports: "never",
+          functions: "never",
+          importAttributes: "never",
+          dynamicImports: "never",
+          enums: "never",
+          generics: "never",
+          tuples: "never",
+        },
+      ],
       "@stylistic/brace-style": [ "error", "1tbs", { allowSingleLine: false } ],
       "@stylistic/arrow-spacing": "error",
       "@stylistic/arrow-parens": [ "error", "always" ],
       "@stylistic/array-bracket-spacing": [ "error", "always" ],
+      "@stylistic/array-element-newline": [ "error", { multiline: true, consistent: true } ],
+      "@stylistic/array-bracket-newline": [ "error", { multiline: true } ],
       "@typescript-eslint/consistent-type-imports": "error",
     },
     languageOptions: {
@@ -169,7 +180,8 @@ export default defineConfig([
       ],
       "simple-import-sort/exports": "error",
     },
-  }, {
+  },
+  {
     plugins: { "import-x": importX },
     rules: { "import-x/no-unresolved": "error" },
     settings: {
@@ -177,6 +189,25 @@ export default defineConfig([
         typescript: { alwaysTryTypes: true },
         node: { extensions: [ ".js", ".jsx", ".ts", ".tsx", ".css", ".scss" ] },
       },
+    },
+  },
+  {
+    plugins: { json },
+    files: [ "**/*.json" ],
+    language: "json/json",
+    extends: [ json.configs.recommended ],
+  },
+  {
+    plugins: { jsonc, "@stylistic": stylistic },
+    files: [ "*.json", "*.jsonc", "*.json5" ],
+    rules: { "jsonc/indent": [ "error", 2 ], "@stylistic/eol-last": [ "error", "always" ] },
+  },
+  {
+    plugins: { putout },
+    rules: {
+      "putout/remove-empty-newline-before-first-specifier": "error",
+      "putout/remove-empty-newline-after-last-specifier": "error",
+      "putout/single-property-destructuring": "error",
     },
   },
 ]);
