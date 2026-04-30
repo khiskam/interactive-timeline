@@ -1,0 +1,39 @@
+name: Frontend Build & Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10
+          cache: true
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile	
+
+      - name: Build app
+        run: pnpm run build
+
+      - name: Check linter
+        run: pnpm lint
+
+      - name: Check styles
+        run: pnpm stylelint
+
+      - name: Check types
+        run: pnpm type:check
+
+      - name: Run knip
+        run: pnpm knip

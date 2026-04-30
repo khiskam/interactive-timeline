@@ -1,14 +1,14 @@
-import { ArrowSvg } from "../../shared/asset/svg/arrow"
+import { ArrowSvg } from "../../shared/asset/svg/arrow";
 
 export const CarouselPagination = () => {
   return (
     <div className="splide__arrows">
       <button className="splide__arrow splide__arrow--prev">
-        <ArrowSvg/>
+        <ArrowSvg />
       </button>
       <button className="splide__arrow splide__arrow--next">
-        <ArrowSvg/>
+        <ArrowSvg />
       </button>
     </div>
-  )
-}
+  );
+};

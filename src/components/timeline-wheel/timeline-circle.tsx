@@ -1,10 +1,11 @@
-import { useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { TimelineDot } from './timeline-dot';
-import { calculateShortestRotation } from '../../app/util';
+import { useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 
-import styles from './timeline-circle.module.css';
+import { calculateShortestRotation } from "../../app/util";
+import { TimelineDot } from "./timeline-dot";
+
+import styles from "./timeline-circle.module.css";
 
 interface TimelineCircleProps {
   activeIdx: number;
@@ -19,9 +20,9 @@ export const TimelineCircle = ({
 }: TimelineCircleProps) => {
   const stepAngle = 360 / data.length;
   const startAngle = -stepAngle;
-  const initialOffset = startAngle - (stepAngle * activeIdx);
+  const initialOffset = startAngle - stepAngle * activeIdx;
 
-  const [rotationOffset, setRotationOffset] = useState(initialOffset);
+  const [ rotationOffset, setRotationOffset ] = useState(initialOffset);
 
   const offsetRef = useRef({ value: initialOffset });
   const titlesRef = useRef<(HTMLSpanElement | null)[]>([]);
@@ -31,9 +32,9 @@ export const TimelineCircle = ({
     if (prevIdxRef.current === activeIdx) {
       return;
     }
-    
+
     prevIdxRef.current = activeIdx;
-    
+
     if (titlesRef.current[activeIdx]) {
       gsap.killTweensOf(titlesRef.current[activeIdx]);
       gsap.set(titlesRef.current[activeIdx], { opacity: 0 });
@@ -41,9 +42,9 @@ export const TimelineCircle = ({
 
     const currentDotAngle = stepAngle * activeIdx + offsetRef.current.value;
     const diff = calculateShortestRotation(currentDotAngle, startAngle);
-    
+
     const targetOffset = offsetRef.current.value + diff;
-    
+
     gsap.killTweensOf(offsetRef.current);
     gsap.to(offsetRef.current, {
       value: targetOffset,
@@ -56,24 +57,27 @@ export const TimelineCircle = ({
         if (titlesRef.current[activeIdx]) {
           gsap.to(titlesRef.current[activeIdx], { opacity: 1, duration: 0.3 });
         }
-      }
+      },
     });
-  }, [activeIdx]);
+  }, [ activeIdx ]);
 
   return (
-    <div className={styles['timeline-circle']}>
-      {data.map((title, idx) => (
+    <div className={ styles["timeline-circle"] }>
+      { data.map((title, idx) => (
         <TimelineDot
-          key={idx}
-          idx={idx}
-          isActive={idx === activeIdx}
-          rotationOffset={rotationOffset}
-          stepAngle={stepAngle}
-          title={title}
-          titleRef={(el) => { titlesRef.current[idx] = el; }}
-          onClick={onClick}
+          key={ idx }
+          idx={ idx }
+          isActive={ idx === activeIdx }
+          rotationOffset={ rotationOffset }
+          stepAngle={ stepAngle }
+          title={ title }
+          titleRef={ (el) => {
+            titlesRef.current[idx] = el;
+          } }
+          onClick={ onClick }
         />
-      ))}
+      )
+      ) }
     </div>
   );
-}
+};

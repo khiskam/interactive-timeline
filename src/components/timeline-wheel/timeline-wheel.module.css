@@ -1,20 +1,19 @@
 .timeline-wheel {
-  width: 100%;
   display: grid;
-  justify-items: center;
-  align-items: center;
+  place-items: center center;
+  width: 100%;
 }
 
 .timeline-wheel::before {
-  content: "";
+  z-index: -1;
   grid-area: 1 / 1;
   width: 100%;
   height: 1px;
-  background-color: rgba(var(--color-black-blue-rgb), .1);
-  z-index: -1;
+  content: "";
+  background-color: rgb(var(--color-black-blue-rgb), 0.1);
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (width <= 767px) {
   .timeline-wheel::before {
     display: none;
   }

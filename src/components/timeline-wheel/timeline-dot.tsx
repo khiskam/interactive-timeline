@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef, useState } from "react";
 
-import styles from './timeline-dot.module.css';
+import styles from "./timeline-dot.module.css";
 
 interface TimelineDotProps {
   idx: number;
@@ -19,9 +19,9 @@ export const TimelineDot = ({
   stepAngle,
   title,
   titleRef,
-  onClick
+  onClick,
 }: TimelineDotProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [ isHovered, setIsHovered ] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
   const deg = stepAngle * idx + rotationOffset;
 
@@ -29,44 +29,50 @@ export const TimelineDot = ({
 
   const handleClick = () => {
     onClick(idx);
-  }
+  };
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-  }
+  };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-  }
+  };
 
   return (
-    <div 
-      className={styles['timeline-circle__dot-wrapper']}
-      style={{ transform: `rotate(${deg}deg) translate(265px) rotate(${-deg}deg)` }}
+    <div
+      className={ styles["timeline-circle__dot-wrapper"] }
+      style={ { transform: `rotate(${deg}deg) translate(265px) rotate(${-deg}deg)` } }
     >
-      <div className={styles['timeline-circle__content']}>
-        <div 
-          className={styles['timeline-circle__dot-hitbox']}
-          onClick={handleClick}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+      <div className={ styles["timeline-circle__content"] }>
+        <div
+          className={ styles["timeline-circle__dot-hitbox"] }
+          onClick={ handleClick }
+          onMouseEnter={ handleMouseEnter }
+          onMouseLeave={ handleMouseLeave }
         >
-          <div 
-            ref={dotRef}
-            className={styles[isExpanded ? 'timeline-circle__dot_big' : 'timeline-circle__dot_small']}
+          <div
+            ref={ dotRef }
+            className={ styles[isExpanded
+              ? "timeline-circle__dot_big"
+              : "timeline-circle__dot_small"] }
           >
-            {isExpanded ? (
-              <span className={styles['timeline-circle__text']}>
-                {idx + 1}
-              </span>
-            ) : null}
+            { isExpanded
+              ? (
+                <span className={ styles["timeline-circle__text"] }>
+                  { idx + 1 }
+                </span>
+              )
+              : null }
           </div>
         </div>
-        <span 
-          ref={titleRef}
-          className={`${styles.timeline__title} ${isActive ? styles['timeline__title_active'] : ''}`}
+        <span
+          ref={ titleRef }
+          className={ `${styles.timeline__title} ${isActive
+            ? styles["timeline__title_active"]
+            : ""}` }
         >
-          {title}
+          { title }
         </span>
       </div>
     </div>
