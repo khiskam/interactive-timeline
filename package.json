@@ -13,12 +13,14 @@
     "lint:fix": "eslint --fix",
     "type:check": "tsc --b --noEmit",
     "knip": "knip",
-    "knip:fix": "knip --fix"
+    "knip:fix": "knip --fix",
+    "test": "rstest"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
+    "clsx": "^2.1.1",
     "gsap": "^3.14.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
@@ -29,6 +31,7 @@
     "@rsbuild/core": "^1.7.1",
     "@rsbuild/plugin-react": "^1.4.2",
     "@rsbuild/plugin-typed-css-modules": "^1.2.2",
+    "@rstest/core": "^0.9.10",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@stylistic/stylelint-plugin": "^5.1.0",
     "@types/node": "^25.6.0",

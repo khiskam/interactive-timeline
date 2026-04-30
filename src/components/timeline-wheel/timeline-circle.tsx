@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 
-import { calculateShortestRotation } from "../../app/util";
 import { TimelineDot } from "./timeline-dot";
+import { calculateShortestRotation } from "./util";
 
 import styles from "./timeline-circle.module.css";
 

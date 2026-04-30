@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import clsx from "clsx";
 
 import styles from "./timeline-dot.module.css";
 
@@ -39,6 +40,13 @@ export const TimelineDot = ({
     setIsHovered(false);
   };
 
+  const dotClassname = clsx({
+    [styles["timeline-circle__dot_big"]]: isExpanded,
+    [styles["timeline-circle__dot_small"]]: !isExpanded,
+  });
+
+  const titleClassname = clsx(styles.timeline__title, { [styles["timeline__title_active"]]: isActive });
+
   return (
     <div
       className={ styles["timeline-circle__dot-wrapper"] }
@@ -53,9 +61,7 @@ export const TimelineDot = ({
         >
           <div
             ref={ dotRef }
-            className={ styles[isExpanded
-              ? "timeline-circle__dot_big"
-              : "timeline-circle__dot_small"] }
+            className={ dotClassname }
           >
             { isExpanded
               ? (
@@ -68,9 +74,7 @@ export const TimelineDot = ({
         </div>
         <span
           ref={ titleRef }
-          className={ `${styles.timeline__title} ${isActive
-            ? styles["timeline__title_active"]
-            : ""}` }
+          className={ titleClassname }
         >
           { title }
         </span>
