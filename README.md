@@ -1,36 +1,56 @@
-# Rsbuild project
+# Interactive Timeline
 
-## Setup
+An interactive, animated timeline component built with React, GSAP, and Rsbuild. It features a circular timeline wheel and a synchronized content carousel.
 
-Install the dependencies:
+## Features
 
-```bash
-pnpm install
-```
+- **Interactive Timeline Wheel**: A circular navigation wheel to select different time periods.
+- **Synchronized Carousel**: Content slides that update based on the selected timeline period, powered by [Splide.js](https://splidejs.com/).
+- **Smooth Animations**: High-performance animations using [GSAP](https://gsap.com/).
+- **Fast Builds**: Powered by [Rsbuild](https://rsbuild.dev/) for lightning-fast development and production builds.
+- **Robust Testing**: Unit testing with `@testing-library/react` and E2E testing with Playwright.
+- **Styling**: CSS Modules with Stylelint for scoped, maintainable styles.
 
-## Get started
+## Tech Stack
 
-Start the dev server, and the app will be available at [http://localhost:3000](http://localhost:3000).
+- **Framework**: React 19
+- **Build Tool**: Rsbuild
+- **Language**: TypeScript
+- **Animations**: GSAP
+- **Carousel**: Splide
+- **Code Quality**: ESLint, Stylelint, Knip
 
-```bash
-pnpm run dev
-```
+## Getting Started
 
-Build the app for production:
+### Prerequisites
 
-```bash
-pnpm run build
-```
+- [Node.js](https://nodejs.org/)
+- [pnpm](https://pnpm.io/) (recommended)
 
-Preview the production build locally:
+### Installation
 
-```bash
-pnpm run preview
-```
+1. Clone the repository:
 
-## Learn more
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-To learn more about Rsbuild, check out the following resources:
+3. Start the development server:
+   ```
+   pnpm run dev
+   ```
+   The application will open automatically in your default browser.
 
-- [Rsbuild documentation](https://rsbuild.rs) - explore Rsbuild features and APIs.
-- [Rsbuild GitHub repository](https://github.com/web-infra-dev/rsbuild) - your feedback and contributions are welcome!
+## Available Scripts
+
+- `pnpm run dev` - Start the development server with auto-reload.
+- `pnpm build` - Build the application for production.
+- `pnpm preview` - Preview the production build locally.
+- `pnpm lint` - Run ESLint to check code quality.
+- `pnpm stylelint` - Run Stylelint for CSS files.
+- `pnpm type:check` - Run TypeScript type checking.
+- `pnpm knip` - Find unused files, dependencies, and exports.
+- `pnpm test:unit` - Run unit tests.
+- `pnpm test:e2e` - Run end-to-end tests with Playwright.
+
