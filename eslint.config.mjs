@@ -199,7 +199,7 @@ export default defineConfig([
   },
   {
     plugins: { jsonc, "@stylistic": stylistic },
-    files: [ "*.json", "*.jsonc", "*.json5" ],
+    files: [ "*.json", "*.json", "*.json" ],
     rules: { "jsonc/indent": [ "error", 2 ], "@stylistic/eol-last": [ "error", "always" ] },
   },
   {

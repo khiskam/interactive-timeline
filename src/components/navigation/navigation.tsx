@@ -1,4 +1,6 @@
-import { ArrowSvg } from "../../shared/asset/svg/arrow";
+import { ArrowSvg } from "@/shared/asset/svg/arrow";
+
+import { formatNumber } from "./util";
 
 import styles from "./navigation.module.css";
 
@@ -15,23 +17,30 @@ export const Navigation = ({
   onPrev,
   onNext,
 }: NavigationProps) => {
-  const formatNumber = (num: number) => num < 10
-    ? `0${num}`
-    : num;
-
   return (
     <div className={ styles.navigation }>
       <p className={ styles.navigation__text }>
         { formatNumber(activeIdx + 1) }
         { " " }
         /
+        { " " }
         { formatNumber(totalItems) }
       </p>
       <div className={ styles.navigation__buttons }>
-        <button className={ styles.navigation__button } onClick={ onPrev }>
+        <button
+          className={ styles.navigation__button }
+          onClick={ onPrev }
+          role="button"
+          aria-label="prev"
+        >
           <ArrowSvg />
         </button>
-        <button className={ styles.navigation__button } onClick={ onNext }>
+        <button
+          className={ styles.navigation__button }
+          onClick={ onNext }
+          role="button"
+          aria-label="next"
+        >
           <ArrowSvg />
         </button>
       </div>

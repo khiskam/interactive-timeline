@@ -1,4 +1,4 @@
-import { ArrowSvg } from "../../shared/asset/svg/arrow";
+import { ArrowSvg } from "@/shared/asset/svg/arrow";
 
 export const CarouselPagination = () => {
   return (

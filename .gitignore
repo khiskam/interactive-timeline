@@ -21,3 +21,14 @@ dist/
 *.module.less.d.ts
 *.module.styl.d.ts
 *.module.stylus.d.ts
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+.env
+
+.pnpm-store

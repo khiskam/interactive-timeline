@@ -1,6 +1,6 @@
 import { SplideSlide } from "@splidejs/react-splide";
 
-import styles from "./carousel-pagination.module.css";
+import styles from "./carousel-slide.module.css";
 
 interface CarouselSlideProps {
   idx: number;

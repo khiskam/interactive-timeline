@@ -30,11 +30,11 @@ export const TimelineTitle = ({ targetStartDate, targetEndDate }: TimelineTitleP
 
   return (
     <p className={ styles["timeline-title"] } style={ { gridArea: "1 / 1" } }>
-      <span className={ styles["timeline-title__text_blue"] }>
+      <span className={ styles["timeline-title__text_blue"] } aria-label="start date">
         { startDate }
       </span>
       &nbsp;&nbsp;
-      <span className={ styles["timeline-title__text_pink"] }>
+      <span className={ styles["timeline-title__text_pink"] } aria-label="end date">
         { endDate }
       </span>
     </p>

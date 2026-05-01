@@ -2,8 +2,9 @@ import "@splidejs/react-splide/css/default";
 
 import { Splide, SplideTrack } from "@splidejs/react-splide";
 
-import type { TopicItem } from "../../shared/type/topic";
-import { CarouselPagination } from "./carousel-pagination";
+import type { TopicItem } from "@/shared/type/topic";
+
+import { CarouselPagination } from "./carousel-navigation";
 import { CarouselSlide } from "./carousel-slide";
 import { CAROUSEL_OPTIONS } from "./constant";
 
