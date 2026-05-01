@@ -1,4 +1,4 @@
-import type { DisciplinesData } from "../shared/type/topic";
+import type { DisciplinesData } from "@/shared/type/topic";
 
 export const TOPICS: DisciplinesData = [
   {

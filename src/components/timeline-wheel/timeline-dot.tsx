@@ -55,6 +55,8 @@ export const TimelineDot = ({
       <div className={ styles["timeline-circle__content"] }>
         <div
           className={ styles["timeline-circle__dot-hitbox"] }
+          role="button"
+          aria-label={ `Select ${title}` }
           onClick={ handleClick }
           onMouseEnter={ handleMouseEnter }
           onMouseLeave={ handleMouseLeave }

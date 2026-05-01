@@ -15,7 +15,9 @@ describe("useMatchMedia", () => {
   let listeners: (() => void)[] = [];
 
   beforeEach(() => {
+    matches = true;
     listeners = [];
+
     Object.defineProperty(window, "matchMedia", {
       writable: true,
       value: rs.fn().mockImplementation((query) => ({
@@ -41,40 +43,33 @@ describe("useMatchMedia", () => {
     rs.resetAllMocks();
   });
 
-  test("", () => {
+  test("should return true when the media query initially matches", () => {
     const { result } = renderHook(() => useMatchMedia("(max-width: 767px)"));
-
     expect(result.current).toBe(true);
   });
 
-  test("", () => {
+  test("should return false when the media query initially does not match", () => {
     matches = false;
-
     const { result } = renderHook(() => useMatchMedia("(max-width: 767px)"));
-
     expect(result.current).toBe(false);
   });
 
-  test("", () => {
+  test("should update value when media query match status changes", () => {
     matches = false;
-
     const { result } = renderHook(() => useMatchMedia("(max-width: 767px)"));
-
     expect(result.current).toBe(false);
 
     act(() => {
       matches = true;
-
       listeners.forEach((cb) => cb());
     });
 
     expect(result.current).toBe(true);
   });
 
-  test("", () => {
+  test("should clean up event listeners on unmount to prevent memory leaks", () => {
     matches = false;
     const { unmount } = renderHook(() => useMatchMedia("(max-width: 767px)"));
-
     expect(listeners.length).toBe(1);
 
     unmount();

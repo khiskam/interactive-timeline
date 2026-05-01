@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 
-import { Carousel } from "../components/carousel/carousel";
-import { Header } from "../components/header/header";
-import { Navigation } from "../components/navigation/navigation";
-import { TimelineWheel } from "../components/timeline-wheel/timeline-wheel";
+import { Carousel } from "@/components/carousel/carousel";
+import { Header } from "@/components/header/header";
+import { Navigation } from "@/components/navigation/navigation";
+import { TimelineWheel } from "@/components/timeline-wheel/timeline-wheel";
+
 import { TOPICS } from "./constant";
 import { useMatchMedia } from "./hook";
 

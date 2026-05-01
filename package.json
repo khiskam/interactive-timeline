@@ -14,7 +14,7 @@
     "type:check": "tsc --b --noEmit",
     "knip": "knip",
     "knip:fix": "knip --fix",
-    "test": "rstest"
+    "test:unit": "rstest"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
