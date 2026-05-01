@@ -20,7 +20,7 @@ describe("TimelineTitle", () => {
   test("should render target start and end dates", () => {
     render(<TimelineTitle targetStartDate={ 2015 } targetEndDate={ 2020 } />);
 
-    expect(screen.getByText("2015")).toBeInTheDocument();
-    expect(screen.getByText("2020")).toBeInTheDocument();
+    expect(screen.getByLabelText("start date")).toHaveTextContent("2015");
+    expect(screen.getByLabelText("end date")).toHaveTextContent("2020");
   });
 });

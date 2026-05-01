@@ -1,5 +1,4 @@
 export interface TopicItem {
-  title: string;
   time: number;
   description: string;
 }
